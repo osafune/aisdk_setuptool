@@ -1,23 +1,37 @@
-DRP-AI TVM setup tool
-=====================
+DRP-AI TVM support tool
+=======================
 
-ルネサスRZ/V2H用のDRP-AI TVMをWSL2+docker環境にインストールするスクリプトです。
+ルネサスRZ/V2H用のDRP-AI TVMをWSL2+docker環境にインストール、実行するスクリプトです。
 
-使い方
-------
+DRP-AI TVMのインストール
+------------------------
 1. RZ/V2H AI Software Development Kitをダウンロードします。  
 [RZ/V2H AI SDKのダウンロード](https://www.renesas.com/ja/software-tool/rzv2h-ai-software-development-kit#downloads)
 
-2. WindowsのWSL2を有効にして、Ubuntuとdockerをインストールします。  
+2. WindowsのWSL2を有効にして、Ubuntuとdockerをインストールします。
 
-3. wslのUbuntuにログインしてユーザーホームディレクトリ以下に作業用フォルダを作成し、このリポジトリの `v2h-aisdk_setup.sh` と 1.でダウンロードしたSDKアーカイブファイル(RTK0EF0180F05000SJ.zip)をコピーします。  
+3. wslのUbuntuにログインしてユーザーホームディレクトリ以下に作業用フォルダを作成し、このリポジトリの `v2h-aisdk.sh` と 1.でダウンロードしたSDKアーカイブファイル(RTK0EF0180F05000SJ.zip)をコピーします。
 
-4. `v2h-aisdk_setup.sh`に実行パーミッションを追加して実行します。
+4. `v2h-aisdk.sh`に実行パーミッションを追加して実行します。
 ```
-$ chmod a+x v2h-aisdk_setup.sh
-$ ./v2h-aisdk_setup.sh
+$ chmod +x v2h-aisdk.sh
+$ ./v2h-aisdk.sh setup
 ```
 
-5. サンプルやチュートリアルはDRP-AI TVMのリポジトリを参照してください。
+DRP-AI TVMコンテナの起動
+------------------------
+wslのUbuntuにログインして `v2h-aisdk.sh` を実行します。デフォルトではカレントフォルダ以下の `work` フォルダをコンテナ側の `/drp-ai_tvm/work` にマウントします。
+```
+$ ./v2h-aisdk.sh run
+```
+起動時にマウントするローカルフォルダを指定することができます。マウントされるフォルダ名はローカルのフォルダ名が利用されます。  
+以下の例ではWindows側の `C\aisdk_work` をコンテナ側の `/drp-ai_tvm/aisdk_work` にマウントします。スペースや多バイト文字が入ったフォルダは指定できません。
+```
+$ ./v2h-aisdk.sh run /mnt/c/aisdk_work
+```
+
+その他
+------
+サンプルやチュートリアルはDRP-AI TVMのリポジトリを参照してください。  
 [renesas-rz/rzv_drp-ai_tvm](https://github.com/renesas-rz/rzv_drp-ai_tvm)
 
