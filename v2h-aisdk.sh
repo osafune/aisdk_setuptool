@@ -58,10 +58,9 @@ else
 fi
 
 
-# Install Docker (If docker is not installed or if the parameter has "--install-docker", install it.)
+# Install Docker (if the parameter has "--install-docker", install it.)
 
-docker --version>/dev/null
-if [ $? -eq 127 ] || [[ "--install-docker" =~ ^("$2"|"$3"|"$4")$ ]]; then
+if [[ "--install-docker" =~ ^("$2"|"$3"|"$4")$ ]]; then
   curl -fsSL https://get.docker.com -o get-docker.sh
   echo ${pwrd} | sudo -kS sh get-docker.sh
   echo ${pwrd} | sudo -kS usermod -aG docker ${USER}
