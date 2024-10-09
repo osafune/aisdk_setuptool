@@ -33,5 +33,9 @@ $ ./v2h-aisdk.sh run /mnt/c/aisdk_work
 その他
 ------
 サンプルやチュートリアルはDRP-AI TVMのリポジトリを参照してください。  
-[renesas-rz/rzv_drp-ai_tvm](https://github.com/renesas-rz/rzv_drp-ai_tvm)
+[renesas-rz/rzv_drp-ai_tvm](https://github.com/renesas-rz/rzv_drp-ai_tvm)  
 
+AI SDKについては下記サイトを参照してください。  
+[Renesas RZ/V AI SDK](https://renesas-rz.github.io/rzv_ai_sdk/latest/)  
+[RZ/V2H AI Software Development Kit](https://www.renesas.com/ja/software-tool/rzv2h-ai-software-development-kit)  
+[DRP-AI Translator i8](https://www.renesas.com/ja/software-tool/drp-ai-translator-i8)  
