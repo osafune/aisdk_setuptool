@@ -17,6 +17,11 @@ DRP-AI TVMのインストール
 $ chmod +x v2h-aisdk.sh
 $ ./v2h-aisdk.sh setup
 ```
+* dockerも同時にインストールする場合は `--install-docker` オプションが利用できます。この場合、インストールが完了した後にいったんUbuntuイメージを再起動させてください。
+```
+$ ./v2h-aisdk.sh setup --install-docker
+```
+
 
 DRP-AI TVMコンテナの起動
 ------------------------
@@ -39,3 +44,8 @@ AI SDKについては下記サイトを参照してください。
 [Renesas RZ/V AI SDK](https://renesas-rz.github.io/rzv_ai_sdk/latest/)  
 [RZ/V2H AI Software Development Kit](https://www.renesas.com/ja/software-tool/rzv2h-ai-software-development-kit)  
 [DRP-AI Translator i8](https://www.renesas.com/ja/software-tool/drp-ai-translator-i8)  
+
+Kakipボードについては下記サイトを参照してください。  
+[AI-SBC Kakip マニュアル](https://yds-kakip-team.github.io/techdoc/jp/)  
+[Kakip-aiリポジトリ](https://github.com/Kakip-ai)  
+[Kakipサイト](https://www.kakip.ai/)
