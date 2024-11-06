@@ -4,15 +4,16 @@ set -e
 # help
 
 if [ "$1" != "run" ] && [ "$1" != "setup" ]; then
-  echo "v2h-aisdk run [local_dir]"
-  echo "  * Run TVM docker image"
-  echo "    [local_dir] : The local folder to mount into the docker container."
+  echo "Usage :"
+  echo "* Run TVM docker image"
+  echo "  $ ./v2h-aisdk.sh run [local_dir]"
+  echo "     [local_dir] : The local folder to mount into the docker container."
   echo ""
-  echo "v2h-aisdk setup [aisdk_zip] [--install-docker] [--cleanup]"
-  echo "  * Setup RZ/V2H DRP-AI TVM"
-  echo "    [aisdk_zip] : AI-SDK zip archive file (ver5.00 or later.)"
-  echo "    --install-docker : Install docker."
-  echo "    --cleanup : Clean up after the installation is complete."
+  echo "* Setup RZ/V2H DRP-AI TVM"
+  echo "  $ ./v2h-aisdk.sh setup [aisdk_zip] [--install-docker] [--cleanup]"
+  echo "     [aisdk_zip] : AI-SDK zip archive file (ver5.00 or later.)"
+  echo "     --install-docker : Install docker."
+  echo "     --cleanup : Clean up after the installation is complete."
   echo ""
   exit
 fi
@@ -44,7 +45,8 @@ read -sp "sudo password: " pwrd
 tty -s && echo
 
 echo ${pwrd} | sudo -kS apt update
-echo ${pwrd} | sudo -kS DEBIAN_FRONTEND=noninteractive apt install -y wsl curl wget unzip
+echo ${pwrd} | sudo -kS apt -y upgrade
+echo ${pwrd} | sudo -kS DEBIAN_FRONTEND=noninteractive apt -y install wsl curl wget unzip
 
 
 # * RZ/V2H AI SDK
@@ -97,7 +99,7 @@ sdk_ver=${str_array[-1]}
 
 wget https://raw.githubusercontent.com/renesas-rz/rzv_drp-ai_tvm/main/DockerfileV2H -O DockerfileV2H
 
-echo "DRP-AI Translator : ${tvm_ver}"
+echo "DRP-AI Translator i8 : ${tvm_ver}"
 echo "Poky v2h toolchain : ${sdk_ver}"
 docker --version
 
